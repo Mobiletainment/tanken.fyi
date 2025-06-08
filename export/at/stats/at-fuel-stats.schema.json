@@ -1,0 +1,115 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Austria: Historical Fuel Price Statistics",
+  "description": "This file contains historical fuel pricing data recorded at regular intervals in Austria, including diesel, super, compressed natural gas (CNG), and crude oil prices. Each data point includes statistical aggregates such as min, max, average, and quantiles.",
+  "meta": {
+    "author": "David Pertiller",
+    "website": "https://tanken.fyi",
+    "license": "MIT",
+    "version": "0.0.1"
+  },
+  "type": "object",
+  "required": ["data"],
+  "properties": {
+    "data": {
+      "type": "array",
+      "title": "Fuel Price Time Series",
+      "description": "A time-ordered list of fuel price statistics for Austria. Each entry represents one recorded data point with statistical summaries.",
+      "items": {
+        "$ref": "#/$defs/FuelStat"
+      }
+    }
+  },
+  "$defs": {
+    "FuelStat": {
+      "type": "object",
+      "required": ["time", "diesel", "super", "gas", "crude"],
+      "properties": {
+        "time": {
+          "type": "string",
+          "format": "date-time",
+          "description": "The ISO 8601 timestamp (UTC) when this snapshot of fuel data was recorded."
+        },
+        "diesel": {
+          "$ref": "#/$defs/MinMaxV2",
+          "description": "Statistical data for Diesel fuel prices in EUR per liter."
+        },
+        "super": {
+          "$ref": "#/$defs/MinMaxV2",
+          "description": "Statistical data for Super 95 fuel prices in EUR per liter."
+        },
+        "gas": {
+          "$ref": "#/$defs/MinMaxV2",
+          "description": "Statistical data for CNG (Autogas or Gas) prices in EUR per liter."
+        },
+        "crude": {
+          "type": "array",
+          "description": "Spot prices of crude oil benchmarks in EUR per barrel: Brent and WTI.",
+          "items": [
+            {
+              "type": "number",
+              "title": "Brent",
+              "description": "Brent crude oil price (primary indicator in Europe)"
+            },
+            {
+              "type": "number",
+              "title": "WTI",
+              "description": "West Texas Intermediate crude oil price"
+            }
+          ],
+          "minItems": 2,
+          "maxItems": 2
+        }
+      }
+    },
+    "MinMaxV2": {
+      "type": "array",
+      "title": "Statistical Summary",
+      "description": "An ordered array of statistical summary values for fuel prices.",
+      "items": [
+        {
+          "type": "number",
+          "title": "Min",
+          "description": "Minimum observed price"
+        },
+        {
+          "type": "number",
+          "title": "Max",
+          "description": "Maximum observed price"
+        },
+        {
+          "type": "number",
+          "title": "Average",
+          "description": "Mean price"
+        },
+        {
+          "type": "number",
+          "title": "Median",
+          "description": "50th percentile (median) price"
+        },
+        {
+          "type": "number",
+          "title": "q-0.01",
+          "description": "1st percentile (q1 ≈ 0.01): lowest outlier threshold."
+        },
+        {
+          "type": "number",
+          "title": "q-0.159",
+          "description": "15.9th percentile (q2 ≈ 0.159): roughly -1 standard deviation in a normal distribution."
+        },
+        {
+          "type": "number",
+          "title": "q-0.841",
+          "description": "84.1st percentile (q3 ≈ 0.841): roughly +1 standard deviation in a normal distribution."
+        },
+        {
+          "type": "number",
+          "title": "q-0.98",
+          "description": "98th percentile (q4 ≈ 0.98): high-priced outlier threshold."
+        }
+      ],
+      "minItems": 8,
+      "maxItems": 8
+    }
+  }
+}
