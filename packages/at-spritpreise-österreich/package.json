@@ -28,5 +28,12 @@
   "dependencies": {},
   "publishConfig": {
     "access": "public"
-  }
+  },
+  "keywords": [
+    "österreich",
+    "tanken",
+    "spritpreise",
+    "e-control",
+    "tanken.fyi"
+  ]
 }
