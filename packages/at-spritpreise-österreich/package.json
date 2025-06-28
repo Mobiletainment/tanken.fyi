@@ -23,5 +23,8 @@
     "export",
     "!**/*.tsbuildinfo"
   ],
-  "dependencies": {}
+  "dependencies": {},
+  "publishConfig": {
+    "access": "public"
+  }
 }
