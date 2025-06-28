@@ -1,5 +1,5 @@
 {
-  "$schema": "https://tanken.fyi/packages/at-spritpreise-österreich/export/stats/at-fuel-stats.schema.json",
+  "$schema": "https://tanken.fyi/export/at/stats/at-fuel-stats.schema.json",
   "data": [
     {
       "time": "2025-06-08T14:00:00.000Z",

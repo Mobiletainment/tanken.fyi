@@ -29,6 +29,7 @@
   "publishConfig": {
     "access": "public"
   },
+  "bugs": "https://github.com/Mobiletainment/tanken.fyi/issues",
   "keywords": [
     "österreich",
     "tanken",
