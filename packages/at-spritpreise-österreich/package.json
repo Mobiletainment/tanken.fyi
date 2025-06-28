@@ -1,9 +1,11 @@
 {
   "name": "@tanken.fyi/at",
   "version": "0.0.1",
-  "author": "David Pertiller",
-  "email": "david@pertiller.tech",
-  "url": "https://tanken.fyi/",
+  "author": {
+    "name": "David Pertiller",
+    "email": "david@pertiller.tech",
+    "url": "https://tanken.fyi/"
+  },
   "license": "MIT",
   "type": "module",
   "main": "./dist/index.js",
