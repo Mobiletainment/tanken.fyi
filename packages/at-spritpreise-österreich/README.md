@@ -33,5 +33,5 @@ The schema includes four statistical quantiles beyond the standard min/max/mean/
 
 ### File Structure
 
-- `packages/at-spritpreise-österreich/export/stats/at-fuel-stats.schema.json` — The main JSON Schema file
-- `packages/at-spritpreise-österreich/export/stats/at-fuel-stats.data.json` — Exported data conforming to the schema
+- `export/stats/at-fuel-stats.schema.json` — The main JSON Schema file
+- `export/stats/at-fuel-stats.data.json` — Exported data conforming to the schema
